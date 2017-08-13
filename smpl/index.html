@@ -11,23 +11,39 @@
   <![endif]-->
 </head>
 <body>
-    <div id="contents">
-        <article id="mainArea">
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div>
-                        <h2>tetete</h2>
-                    </div>
-                </div>
-            </div>
-        </article>
-    </div>
-    <script src="http://code.jquery.com/jquery-1.12.0.min.js" integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="./js/plugins/jquery.jsonp-2.4.0.min.js"></script>
-    <script src="./js/ams-api.js"></script>
-    <script src="./js/main.js"></script>
+  <div id="contents">
+    <article id="mainArea">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">検索件数</div><div class="col-xs-9 ams-total-num" data-init="0"></div>
+          <div class="col-xs-3">表示開始番号</div><div class="col-xs-9 ams-start-num" data-init="0"></div>
+          <div class="col-xs-3">表示終了番号</div><div class="col-xs-9 ams-end-num" data-init="0"></div>
+          <div class="col-xs-3">表示件数</div><div class="col-xs-9 ams-max-num" data-init="50"></div>
+          <div class="col-xs-3">検索条件</div>
+          <div class="col-xs-9 ams-search-condition">
+            {}
+          </div>
+          <div class="col-xs-3">検索結果</div>
+          <div class="col-xs-9 ams-search-results">
+            <div class="col-xs-3">ID</div><div class="col-xs-9 ams-object_id" data-init="0"></div>
+            <div class="col-xs-3">画像</div><div class="col-xs-9 ams-filename_room_layout" data-init="0"></div>
+            <div class="col-xs-3">所在地</div><div class="col-xs-9 ams-address_name" data-init="0"></div>
+            <div class="col-xs-3">交通</div><div class="col-xs-9 ams-access1" data-init="0"></div>
+            <div class="col-xs-3">価格</div><div class="col-xs-9 ams-object_price" data-init="0"></div>
+            <div class="col-xs-3">物件種別</div><div class="col-xs-9 ams-object_kind" data-init="0"></div>
+            <div class="col-xs-3">土地面積</div><div class="col-xs-9 ams-land_square" data-init="0"></div>
+            <div class="col-xs-3">築年月</div><div class="col-xs-9 ams-complete_ym" data-init="0"></div>
+            <div class="col-xs-3">間取り</div><div class="col-xs-9 ams-room_layout" data-init="0"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js" integrity="sha256-Xxq2X+KtazgaGuA2cWR1v3jJsuMJUozyIXDB3e793L8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="./js/plugins/jquery.jsonp-2.4.0.min.js"></script>
+  <script src="./js/ams-api.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </body>
 </html>

@@ -1,4 +1,70 @@
+'use strict';
+
 $(function(){
+  const tmpl = {
+    records: ''
+  };
+
+  const $eles = {
+    parent: undefined,
+    condition: undefined,
+    results: undefined,
+  };
+
+  /**
+   * APIリクエストオブジェクト
+   */
+  const requestObj = function() {
+    const model = {
+      "api_key": null,
+      "object_kind": null,
+      "charset": null,
+      "is_img": null,
+      "price_lower": null,
+      "price_upper": null,
+      "room_layout": null,
+      "square_total_lower": null,
+      "square_total_upper": null,
+      "square_lower": null,
+      "square_upper": null,
+      "required_time": null,
+      "complete_ym": null,
+      "address": null,
+      "primary_school": null,
+      "junior_high_school": null,
+      "sort": null,
+      "disp_num": null,
+      "page": null
+    };
+
+    return {
+      getModel: function() {
+        return model;
+      },
+      setModelItem: function(key, val) {
+        model[key] = val;
+      },
+      getPage: function() {
+        return (model.page && isNaN(model.page) && model.page > 0) ? Math.ceil(model.page) : 1;
+      }
+    };
+  };
+
+  /**
+   * 画面を初期化する
+   *
+   */
+  const clsDispDatas = function() {
+    // data-init属性がある項目はその値で初期化
+    $eles.parent.find('[data-init]').filter(function(n) {
+      return ($(this).attr('class').indexOf('ams-') >= 0);
+    }).each(function() {
+      $(this).text($(this).data('init'));
+    });
+
+    $eles.condition.empty().text('{}');
+    $eles.results.empty().text('{}');
+  };
 
   /**
    * JSONP通信により、物件データ取得
@@ -8,6 +74,8 @@ $(function(){
    */
   const dataLoader = function (searchCondition) {
     var deferred = new $.Deferred;
+
+    console.log(searchCondition);
 
     const datas = [
       {
@@ -100,6 +168,11 @@ $(function(){
     return deferred.promise();
   };
 
+  /**
+   * 検索条件に基づきデータ取得を行い、画面表示を行う
+   *
+   * @param searchCondition 検索条件
+   */
   const search = function(searchCondition) {
     var deferred = new $.Deferred;
     console.log('search process start');
@@ -109,10 +182,33 @@ $(function(){
      *
      * @param datas
      */
-    const putDatas = function (datas) {
-      const $parent = $('#mainArea');
+    const putDispDatas = function(datas) {
+      if (!$.isArray(datas) || datas.length <= 0) {
+        // 検索結果が0件
+        deferred.resolve(0);
+      }
 
-      console.log(datas);
+      $eles.parent.find('.ams-total-num').html(datas.length);
+
+      console.log(req.getPage());
+
+      const $base = $('<div>');
+      $.each(datas, function(i, n) {
+        const $contener = $('<div>').attr('id', 'record' + i);
+        $contener.append($(tmpl.records));
+
+        for (let key in this) {
+          let val = this[key];
+
+          $contener.find('.ams-' + key).html(val);
+        }
+
+        $base.append($contener);
+      });
+
+      // console.log($base.html());
+      $eles.results.html($base.html());
+
       deferred.resolve();
     };
 
@@ -120,7 +216,8 @@ $(function(){
     dataLoader(searchCondition)
     .done(function(json, textStatus, xOptions) {
       // 取得成功
-      putDatas(json);
+      clsDispDatas();
+      putDispDatas(json);
     }).fail(function(xOptions, textStatus) {
       // 取得失敗
       console.log(textStatus);
@@ -132,8 +229,18 @@ $(function(){
     });
   };
 
+  // オブジェクト設定
+  $eles.parent = $('#mainArea');
+  $eles.condition = $eles.parent.find('.ams-search-condition');
+  $eles.results = $eles.parent.find('.ams-search-results');
+
+  tmpl.records = $eles.results.html();
+
+  clsDispDatas();
+
   // 検索条件
-  const searchCondition = {};
+  const req = requestObj();
+  const searchCondition = req.getModel();
 
   // 検索開始
   search(searchCondition);

@@ -1,0 +1,21 @@
+{
+  "api_key": null,
+  "object_kind": null,
+  "charset": null,
+  "is_img": null,
+  "price_lower": null,
+  "price_upper": null,
+  "room_layout": null,
+  "square_total_lower": null,
+  "square_total_upper": null,
+  "square_lower": null,
+  "square_upper": null,
+  "required_time": null,
+  "complete_ym": null,
+  "address": null,
+  "primary_school": null,
+  "junior_high_school": null,
+  "sort": null,
+  "disp_num": null,
+  "page": null
+}
