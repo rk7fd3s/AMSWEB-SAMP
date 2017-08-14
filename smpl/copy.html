@@ -1,0 +1,266 @@
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="土地一覧">
+    <meta name="keywords" content="マンション,戸建て,土地">
+    <title>土地を探す</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/override_basic.css" media="all">
+    <link href="/css/color_a.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="contents">
+        <article id="mainArea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div>
+                            <h2>売買物件検索&nbsp;<span>[土地を探す]</span></h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 mt20">
+                        <h5 class="kensaku">
+                        検索結果：<span class="ams-total-num" data-init="0"></span>件が見つかりました｡<br>
+                        <span class="ams-start-point" data-init="0"></span>～<span class="ams-end-point" data-init="0"></span>件を表示しています｡
+                </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" style="margin-bottom: 1em;vertical-align: middle;">
+                    <div class="col-lg-12 text-left">
+                        <label class="display_num_label floatL">表示件数:&nbsp;</label>
+                        <select name="disp_num_sort" class="disp_num_sort form-control2">
+                    <option value="10">10件</option>
+                    <option value="30">30件</option>
+                    <option value="50" selected="selected">50件</option>
+                </select>
+                        <div class="pagination">
+                            <ul class="pagination">
+                                <li><span class="disabled">&lt;</span></li>
+                                <li class="active"><span class="current">1</span></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(2)">2</a></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(3)">3</a></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(2)">&gt;</a></li>
+                            </ul>
+                        </div>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
+                            <p class="shibori"></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="checkArea">
+                    <a class="inq1" href="javascript:void(0)">
+                        <p class="toiawase"></p>
+                    </a>
+                </div>
+            </div>
+            <div class="container mb10">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <span>並び替え</span> [
+                        <a href="javascript:void(0)" onclick="UI.setSort('new_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;新着 |
+                        <a href="javascript:void(0)" onclick="UI.setSort('price_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;価格 |
+                        <a href="javascript:void(0)" onclick="UI.setSort('built_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;築年月 |
+                        <a href="javascript:void(0)" onclick="UI.setSort('square_desc')"><i class="fa fa-sort-amount-asc"></i></a>&nbsp;面積（専有） | <a href="javascript:void(0)" onclick="UI.setSort('land_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;土地
+                        |
+                        <a href="javascript:void(0)" onclick="UI.setSort('access_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;交通 |
+                        <a href="javascript:void(0)" onclick="UI.setSort('addr_asc')"><i class="fa fa-sort-amount-desc"></i></a>&nbsp;所在地 ］
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="https://agent-master.jp/web/inquiry/index.html" method="post" id="inqForm" target="_blank">
+                            <input type="hidden" name="api_key" value="c3NRJ5nYwxnR63QGBnXtHPsQubtY5aP1NP6YQ79GHjzsBEZPgmCWV5q3CYPShM53XRbsEXr0pq0XfIvw2tFKBEzntmgCvCDzcGaycYEIrS33w0jL7bLpsloFkZZS5MuT">
+                            <input type="hidden" name="object_kind" value="166">
+                            <input type="hidden" name="inq_type" id="inq_type" value="">
+                            <!-- 検索結果リスト -->
+                            <table id="search_list" summary="物件検索一覧結果" class="table table-striped table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th width="90px"> チェック<br><input type="checkbox" name="allcheck" id="allcheck" onclick="javascript:void(0)"></th>
+                                        <th width="66px"> 画像</th>
+                                        <th width="362px"> 所在地<br>交通 </th>
+                                        <th width="109px"> 価格<br>物件種別 </th>
+                                        <th width="174px"> 土地面積 </th>
+                                        <th width="104px"> 築年月<br>間取り </th>
+                                        <th width="84px"> 詳細 </th>
+                                    </tr>
+                                    <tr class="ams-search-results">
+                                        <td class=""><br><span class="orange">更新</span><br><input type="checkbox" class="chklist ams-object_id" name="object_id_arr[]"></td>
+                                        <td class=""><img src="/vb_images/no_image.jpg" alt="" height="50" width="50"></td>
+                                        <td><span class="ams-address_name"></span><br><span class="ams-access1"></span></td>
+                                        <td class="kakaku"><span class="tdkakaku ams-object_price"></span>万<br><span class="ams-object_kind"></span></td>
+                                        <td><span class="ams-land_square"></span>㎡</td>
+                                        <td><span class="ams-complete_ym"></span><br><span class="ams-room_layout"></span></td>
+                                        <td><a href="detail.html?api_key=c3NRJ5nYwxnR63QGBnXtHPsQubtY5aP1NP6YQ79GHjzsBEZPgmCWV5q3CYPShM53XRbsEXr0pq0XfIvw2tFKBEzntmgCvCDzcGaycYEIrS33w0jL7bLpsloFkZZS5MuT&amp;object_id=22484712&amp;object_kind=166" target="_blank"><span class="btn btn-sm btn-primary">詳細</span></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="checkArea2">
+                    <a class="inq1" href="javascript:void(0)">
+                        <p class="toiawase"></p>
+                    </a>
+                </div>
+            </div>
+            <div class="container mt40">
+                <div class="row" style="margin-bottom: 1em;">
+                    <div class="col-lg-12 text-left">
+                        <label class="display_num_label floatL">表示件数:  </label>
+                        <select name="disp_num_sort" class="disp_num_sort form-control2">
+                    <option value="10">10件</option>
+                    <option value="30">30件</option>
+                    <option value="50" selected="selected">50件</option>
+                </select>
+                        <div class="pagination">
+                            <ul class="pagination">
+                                <li><span class="disabled">&lt;</span></li>
+                                <li class="active"><span class="current">1</span></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(2)">2</a></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(3)">3</a></li>
+                                <li><a href="javascript:void(0)" onclick="UI.setPage(2)">&gt;</a></li>
+                            </ul>
+                        </div>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#searchModal">
+                            <p class="shibori"></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">検索条件の設定</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./?api_key=c3NRJ5nYwxnR63QGBnXtHPsQubtY5aP1NP6YQ79GHjzsBEZPgmCWV5q3CYPShM53XRbsEXr0pq0XfIvw2tFKBEzntmgCvCDzcGaycYEIrS33w0jL7bLpsloFkZZS5MuT&amp;object_kind=166" class="form-horizontal" method="post" id="searchForm">
+                                <input type="hidden" name="api_key" value="c3NRJ5nYwxnR63QGBnXtHPsQubtY5aP1NP6YQ79GHjzsBEZPgmCWV5q3CYPShM53XRbsEXr0pq0XfIvw2tFKBEzntmgCvCDzcGaycYEIrS33w0jL7bLpsloFkZZS5MuT"> <input type="hidden" name="object_kind" value="166">                                <input type="hidden" name="tab" id="tab" value="1"> <input type="hidden" name="page" id="page" value=""> <input type="hidden" name="disp_num" id="disp_num" value="50"> <input type="hidden" name="sort" id="sort" value="square_asc">
+                                <div class="" id="">
+                                    <div id="">
+                                        <h4 class="" id=""><span>条件を指定</span></h4>
+                                        <p>■ご希望の条件をお選び下さい。（複数選択が可能です。）</p>
+                                    </div>
+                                    <div class="" id="">
+                                        <table border="0" cellpadding="0" cellspacing="0" summary="検索条件" class="shiboritable">
+                                            <tbody>
+                                                <tr id="">
+                                                    <th>価格</th>
+                                                    <td>
+                                                        <ul class="list-group">
+                                                            <li> <input type="number" style="width:70px;" name="price_lower" value="1">万円〜 <input type="number" style="width:70px;" name="price_upper" value="5000">万円 </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr id="">
+                                                    <th>土地面積</th>
+                                                    <td> <input type="number" style="width:70px;" name="square_lower" value="">坪〜 <input type="number" style="width:70px;" name="square_upper" value="">坪 </td>
+                                                </tr>
+                                                <tr id="">
+                                                    <th>駅徒歩</th>
+                                                    <td>
+                                                        <ul class="list-group">
+                                                            <li><input type="radio" name="required_time" value="5" id="walk_time0"> <label for="walk_time0">5分以内</label></li>
+                                                            <li><input type="radio" name="required_time" value="10" id="walk_time1"> <label for="walk_time1">10分以内</label></li>
+                                                            <li><input type="radio" name="required_time" value="15" id="walk_time2"> <label for="walk_time2">15分以内</label></li>
+                                                            <li><input type="radio" name="required_time" value="20" id="walk_time3"> <label for="walk_time3">20分以内</label></li>
+                                                            <li><input type="radio" name="required_time" value="" checked="checked" id="walk_time4"> <label for="walk_time4">指定なし</label></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr id="">
+                                                    <th>住所</th>
+                                                    <td> <input type "text"="" name="address_text" value=""> </td>
+                                                </tr>
+                                                <tr id="">
+                                                    <th>小学校区</th>
+                                                    <td> <input type "text"="" name="primary_school" value=""> </td>
+                                                </tr>
+                                                <tr id="">
+                                                    <th>中学校区</th>
+                                                    <td> <input type "text"="" name="junior_high_school" value=""> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- end of searchConditionChoices -->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                            <a href="javascript:void(0)" class="searchBtn"><button type="button" class="btn btn-primary">検索</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="./js/plugins/jquery.jsonp-2.4.0.min.js"></script>
+            <script src="./js/main.js"></script>
+            <!-- <script src="/js/UI.js"></script> -->
+            <script>
+                // var UI = new UI("#searchForm", "#page", "#sort");
+                //
+                //
+                // $(function() {
+                //
+                //     $(".searchBtn").click(function() {
+                //         $("#searchForm").submit();
+                //     });
+                //
+                //     $(".inq1").click(function() {
+                //
+                //         $("#inqForm").submit();
+                //
+                //     });
+                //
+                //     $(".disp_num_sort").change(function() {
+                //         $("#disp_num").val($(this).val());
+                //         $("#searchForm").submit();
+                //     });
+                //
+                //     $("#allcheck").click(function() {
+                //
+                //         var chkArr = $(".chklist")
+                //         if ($("#allcheck").prop("checked")) {
+                //             for (var i = chkArr.length - 1; i >= 0; i--) {
+                //                 $(chkArr[i]).prop("checked", true)
+                //             };
+                //         } else {
+                //             for (var i = chkArr.length - 1; i >= 0; i--) {
+                //                 $(chkArr[i]).prop("checked", false)
+                //             };
+                //         }
+                //     });
+                //
+                //     $(".disp_num_sort").change(function() {
+                //         $("#disp_num").val($(this).val());
+                //         $("#searchForm").submit();
+                //     });
+                //
+                // });
+            </script>
+        </article>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+/* color_d.css グリーン設定*/
+
+
+/*-----------------list------------------------*/
+
+article#mainArea h2{
+	font-size:40px;
+	font-weight:bold;
+	color: #3FB871;
+}
+
+h5.kensaku span{
+	font-size: 30px;
+	font-weight:bold;
+	color: #3FB871;
+}
+
+/*リストのタイトル色*/
+#search_list tr:nth-child(1) {
+    background-color: #3FB871;
+}
+
+
+/*チェックした物件に*/
+
+div.checkArea{
+	margin-top: 20px;
+	width: 900px;
+	height: 77px;
+	font-size:30px;
+	font-weight:bold;
+	padding-top: 7px;
+	background: url(/vb_images/check_top_d.png) no-repeat ;
+	color: #525252;
+}
+
+div.checkArea2{
+	width: 900px;
+	height: 77px;
+	font-size:30px;
+	font-weight:bold;
+	padding-top: 7px;
+	background: url(/vb_images/check_bottom_d.png) no-repeat ;
+	color: #525252;
+	margin-top: -15px;
+}
+
+
+/*条件を絞り込むモーダル*/
+
+h4.modal-title {
+	font-size: 30px;
+	font-weight: bold;
+	color: #3FB871;
+}
+
+/*-----------------detail------------------------*/
+
+
+/*タイトル色設定*/
+article#mainArea h2.detailTl{
+	font-size:40px;
+	font-weight:bold;
+	color: #3FB871;
+    border-bottom: 3px solid #3FB871;
+}
+
+/*物件名タイトル色設定*/
+#header_table > tbody > tr:nth-child(1) > th{
+    background-color: #3FB871;
+	border: none;
+    color: white;
+	border-bottom: solid 10px #fff!important;
+}
+
+/*お問い合わせ先タイトル色設定*/
+#inquiry_table > tbody > tr:nth-child(1) > th{
+    background-color: #3FB871;
+	border: none;
+    color: white;
+	border-bottom: solid 10px #fff!important;
+}

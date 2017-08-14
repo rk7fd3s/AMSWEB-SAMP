@@ -1,0 +1,308 @@
+/*マージンあれこれ*/
+.mt10{
+	margin-top: 10px;
+}
+
+.mt20{
+	margin-top: 20px;
+}
+
+.mt30{
+	margin-top: 30px;
+}
+
+.mt40{
+	margin-top: 40px;
+}
+
+.mb10{
+	margin-bottom: 10px;
+}
+
+.vam{
+vertical-align: middle;
+}
+
+/*body*/
+body {
+	font-size: 13px;
+    background-color: #FFF;
+    font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+  	color: #666;
+}
+
+.container {
+    background-color: #FFF;
+}
+
+
+.gallery {
+    width:420px;
+}
+ul#lightSlider {
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+ul#lightSlider li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:pointer;
+}
+ul#lightSlider li img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+#loading-view {
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    filter: alpha(opacity=85);
+    -moz-opacity: 0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+    background-image: url(/cma/images/loading.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: #FFF;
+	width: 100%;
+}
+
+/*メインエリア設定*/
+#contents{
+	width:970px;
+	margin:20px auto 20px;
+	overflow: hidden;
+	clear: both;
+}
+
+article#mainArea{
+	background-color:#fff;
+	padding: 20px;
+	/* Firefox v1.0+ */
+	-moz-border-radius:7px;
+	/* Safari v3.0+ and by Chrome v0.2+ */
+	-webkit-border-radius:7px;
+	/* Firefox v4.0+ , Safari v5.0+ , Chrome v4.0+ , Opera v10.5+  and by IE v9.0+ */
+	border-radius:7px;
+	width:970px;
+	display: inline-block;
+}
+
+/*タイトルオレンジ設定*/
+article#mainArea h2{
+	font-size:40px;
+	font-weight:bold;
+	color: #FF7F00;
+    border-bottom: 3px solid #FF7F00;
+}
+
+/*ご不明な点はお気軽にお問合せ下さい｡*/
+.info p{
+	float: left;
+	vertical-align: middle;
+}
+
+.info p.toiawase{
+	font-size: 16px;
+}
+
+.info p.toiawase span{
+	margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.info p.toiawase2 span{
+	margin-left: 301px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*問合せボタン*/
+div.info p.toiawaseBtn {
+  cursor: pointer;
+  display: block;
+  width: 250px;
+  height: 36px;
+  border: none;
+  background: url(/vb_images/toiawaseBtnD.png) no-repeat 0 0;
+  float: right;
+}
+
+div.info p.toiawaseBtn:hover {
+  background: url(/vb_images/toiawaseBtnD.png) no-repeat 0 -36px;
+}
+
+
+/*詳細のテーブル上*/
+table#header_table{
+	font-size: 16px;
+	line-height: 1.4!important;
+	border: none!important;
+}
+
+table#header_table tr{
+	border: none!important;
+}
+
+table#header_table tr th {
+	width: 170px!important;
+	border: none!important;
+}
+
+table#header_table tr td {
+/*	width: 300px!important;*/
+    background-color: white;
+	border: none!important;
+}
+
+span.big_price{
+	font-size: 30px!important;
+	font-weight: bold;
+	line-height: 0.8;
+}
+
+span.big_number{
+    font-size: 20px!important;
+    font-weight: bold;
+    line-height: 0.8;
+}
+
+
+#header_table > tbody > tr:nth-child(1) > th{
+    background-color: #FF7F00;
+	border: none;
+    color: white;
+	border-bottom: solid 10px #fff!important;
+}
+
+#header_table h4{
+	font-size: 20px!important;
+    margin: 5px!important;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #fff;
+}
+
+/*詳細のテーブル下*/
+table#detail_table{
+	font-size: 16px;
+	line-height: 1.8!important;
+	border: none!important;
+}
+
+table#detail_table tr{
+	border: none!important;
+}
+
+table#detail_table tr th {
+	width: 170px!important;
+	border: none!important;
+    padding: 8px;
+    background: #EFEFEF;
+}
+
+table#detail_table tr td {
+	width: 300px!important;
+    background-color: white;
+	border: none!important;
+    padding: 8px;
+}
+
+/*お問い合わせ先テーブル*/
+table#inquiry_table{
+	font-size: 16px;
+	line-height: 1.8;
+	border: none!important;
+}
+
+table#inquiry_table tr{
+	border: none!important;
+}
+
+table#inquiry_table tr th {
+	border: none!important;
+}
+
+table#inquiry_table tr td {
+    background-color: white;
+	border: none!important;
+}
+
+#inquiry_table > tbody > tr:nth-child(1) > th{
+    background-color: #FF7F00;
+	border: none;
+    color: white;
+	border-bottom: solid 10px #fff!important;
+}
+
+span.emphasis{
+    font-size: 25px!important;
+    font-weight: bold;
+    line-height: 0.8;
+}
+
+/*画像ギャラリー設定*/
+.galleryArea{
+    width: 900px;
+    padding: 20px;
+    background: #EFEFEF;
+}
+
+
+.gallery {
+	float: left;
+}
+
+ul#lightSlider {
+    width:500px;
+    list-style: none outside none;
+    padding-left: 0;
+    margin-bottom:0;
+}
+ul#lightSlider li {
+    display: block;
+    float: left;
+    margin-right: 6px;
+    cursor:default;
+}
+ul#lightSlider li img {
+    display: block;
+    height: auto;
+}
+
+.lSSlideWrapper {
+    width:500px!important;
+	position: relative;
+	left: 220px!important;
+}
+
+.lSSlideOuter {
+    width:900px;
+}
+
+ul.lSGallery {
+    width:870px!important;
+}
+
+.lSGallery li {
+	margin-top: 10px;
+	width: 74px!important;
+/*	height: 53px!important;*/
+}
+
+a.lSPrev, a.lSNext {
+    cursor: default;
+}

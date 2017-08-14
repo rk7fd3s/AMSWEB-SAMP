@@ -1,0 +1,71 @@
+.pagination {
+    clear: both;
+    padding: 0;
+    margin: 1em 0;
+}
+.pagination li {
+    display:inline;
+}
+.pagination a {
+    border: 1px solid #D5D5D5;
+    color: #666666;
+    font-size: 11px;
+    font-weight: bold;
+/*    height: 25px;*/
+    padding: 4px 8px;
+    text-decoration: none;
+  margin:2px;
+}
+.pagination a:hover, .pagination a:active {
+    background:#efefef;
+}
+.pagination span.current {
+    background-color: #687282;
+    border: 1px solid #D5D5D5;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+/*    height: 25px;*/
+    padding: 4px 8px;
+    text-decoration: none;
+    margin:2px;
+}
+.pagination span.disabled {
+    border: 1px solid #EEEEEE;
+    color: #DDDDDD;
+    margin: 2px;
+    padding: 2px 5px;
+}
+
+/*
+-----------------------------------------------------------------------------
+絞込ボタン20150320
+-----------------------------------------------------------------------------*/
+.pagination a.button{
+  vertical-align: middle;
+  height: 30px;
+  color: #FFF;
+  background: #EF4043!important;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 3px 10px 0px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: rgba(255,255,255,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  font-size: 1.7em;
+}
+
+.pagination a.button:hover{
+    color: #FFF!important;
+    background: #999!important;
+}
