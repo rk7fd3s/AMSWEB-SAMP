@@ -138,8 +138,8 @@ $(function(){
       $eles.parent.find('.ams-end-point').html(end_point);
 
       // 一覧表示
-      const $parent = $eles.results.parent(); // 親要素
-      $eles.results.remove(); // ams-search-resultsクラスがつくものをすべて除去
+      const $parent = $eles.parent.find('.ams-search-results').parent(); // 親要素
+      $eles.parent.find('.ams-search-results').remove(); // ams-search-resultsクラスがつくものをすべて除去
       $.each(object, function(i, n) {
         const $contener = $(tmpl.records);  // テンプレートをからjQueryオブジェクト生成
 
@@ -184,9 +184,8 @@ $(function(){
   $eles.parent = $('#mainArea');
   $eles.searchArea = $eles.parent.find('#searchArea');
   $eles.resultArea = $eles.parent.find('#resultArea');
-  $eles.results = $eles.parent.find('.ams-search-results');
 
-  tmpl.records = $eles.results.prop('outerHTML');
+  tmpl.records = $eles.parent.find('.ams-search-results').prop('outerHTML');
 
   clsDispDatas();
 
