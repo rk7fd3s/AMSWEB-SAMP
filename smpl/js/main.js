@@ -112,6 +112,7 @@ $(function(){
      * @param datas
      */
     const putDispDatas = function(datas) {
+      const total_num = datas.total || 0;
       const object = datas.object;
 
       if (!$.isArray(object) || object.length <= 0) {
@@ -127,8 +128,6 @@ $(function(){
       $eles.parent.find('.ams-max-num').html(max_num);
 
       // 総件数
-      // TODO
-      const total_num = 1;
       $eles.parent.find('.ams-total-num').html(total_num);
 
       // 現表示範囲

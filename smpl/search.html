@@ -76,7 +76,7 @@
                               <input type="text" class="form-control" name="price_upper" id="price_upper">
                             </div>
                           </div>
-                          <div class="col-sm-4">
+                          <div class="col-sm-12">
                             <div class="form-group">
                               <label for="room_layout">間取り</label>
                               <select class="form-control" name="room_layout" id="room_layout">
@@ -93,18 +93,30 @@
                               </select>
                             </div>
                           </div>
-                          <div class="col-sm-4">
+                          <div class="col-sm-3">
                             <div class="form-group">
-                              <label for="square_total_lower">面積（専有・建物）下限(平米)</label>
+                              <label for="square_total_lower">戸建の面積（専有・建物）下限(平米)</label>
                               <input type="text" class="form-control" name="square_total_lower" id="square_total_lower">
                             </div>
                           </div>
-                          <div class="col-sm-4">
+                          <div class="col-sm-3">
                             <div class="form-group">
-                              <label for="square_total_upper">面積（専有・建物）上限(平米)</label>
+                              <label for="square_total_upper">戸建の面積（専有・建物）上限(平米)</label>
                               <input type="text" class="form-control" name="square_total_upper" id="square_total_upper">
                             </div>
                           </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="square_bldtotal_lower">マンションの面積（専有・建物）下限(平米)</label>
+                                    <input type="text" class="form-control" name="square_bldtotal_lower" id="square_bldtotal_lower">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="square_bldtotal_upper">マンションの面積（専有・建物）上限(平米)</label>
+                                    <input type="text" class="form-control" name="square_bldtotal_upper" id="square_bldtotal_upper">
+                                </div>
+                            </div>
                           <div class="col-sm-3">
                             <div class="form-group">
                               <label for="square_lower">土地面積下限(平米)</label>
@@ -231,6 +243,43 @@
                             <th>都市計画</th>
                             <th>用途地域</th>
                             <th>小学校区<br>中学校区</th>
+                            <th>設備</th>
+                            <th>備考</th>
+                            <th>物件番号</th>
+                            <th>建物階数</th>
+                            <th>建物構造</th>
+                            <th>許可等の処分の番号</th>
+                            <th>業者名業者名業者名</th>
+                            <th>業者所在地業者所在地業者所在地</th>
+                            <th>業者TEL業者TEL業者TEL</th>
+                            <th>業者免許番号業者免許番号業者免許番号</th>
+                            <th>管理費</th>
+                            <th>修繕積立金</th>
+                            <th>管理方式</th>
+                            <th>駐車場月額</th>
+                            <th>バルコニー面積</th>
+                            <th>所在階/階数</th>
+                            <th>間取図</th>
+                            <th>画像１</th>
+                            <th>画像２</th>
+                            <th>画像３</th>
+                            <th>画像４</th>
+                            <th>画像５</th>
+                            <th>画像６</th>
+                            <th>画像７</th>
+                            <th>画像８</th>
+                            <th>画像９</th>
+                            <th>画像１０</th>
+                            <th>画像１１</th>
+                            <th>画像１２</th>
+                            <th>画像１３</th>
+                            <th>画像１４</th>
+                            <th>画像１５</th>
+                            <th>画像１６</th>
+                            <th>画像１７</th>
+                            <th>画像１８</th>
+                            <th>画像１９</th>
+                            <th>画像２０</th>
                         </tr>
                         <tr class="ams-search-results">
                             <td><span class="ams-object_id"></span></td>
@@ -254,6 +303,43 @@
                             <td><span class="ams-city_planning"></span></td>
                             <td><span class="ams-use_district"></span></td>
                             <td><span class="ams-primary_school"></span><br><span class="ams-junior_high_school"></span></td>
+                            <td><span class="ams-equipment"></span></td>
+                            <td><span class="ams-comment"></span></td>
+                            <td><span class="ams-object_no"></span></td>
+                            <td><span class="ams-building_structure_ground"></span></td>
+                            <td><span class="ams-building_structure"></span></td>
+                            <td><span class="ams-building_kakunin_no"></span></td>
+                            <td><span class="ams-trader_name"></span></td>
+                            <td><span class="ams-trader_address"></span></td>
+                            <td><span class="ams-trader_tel"></span></td>
+                            <td><span class="ams-trader_license_number"></span></td>
+                            <td><span class="ams-management_cost"></span></td>
+                            <td><span class="ams-repair_cost"></span></td>
+                            <td><span class="ams-management_form"></span></td>
+                            <td><span class="ams-parking_cost"></span></td>
+                            <td><span class="ams-balcony"></span></td>
+                            <td><span class="ams-floor"></span></td>
+                            <td><span class="ams-filename_room_layout"></span></td>
+                            <td><span class="ams-filename_exterior1"></span></td>
+                            <td><span class="ams-filename_exterior2"></span></td>
+                            <td><span class="ams-filename_exterior3"></span></td>
+                            <td><span class="ams-filename_exterior4"></span></td>
+                            <td><span class="ams-filename_exterior5"></span></td>
+                            <td><span class="ams-filename_exterior6"></span></td>
+                            <td><span class="ams-filename_exterior7"></span></td>
+                            <td><span class="ams-filename_exterior8"></span></td>
+                            <td><span class="ams-filename_exterior9"></span></td>
+                            <td><span class="ams-filename_exterior10"></span></td>
+                            <td><span class="ams-filename_exterior11"></span></td>
+                            <td><span class="ams-filename_exterior12"></span></td>
+                            <td><span class="ams-filename_exterior13"></span></td>
+                            <td><span class="ams-filename_exterior14"></span></td>
+                            <td><span class="ams-filename_exterior15"></span></td>
+                            <td><span class="ams-filename_exterior16"></span></td>
+                            <td><span class="ams-filename_exterior17"></span></td>
+                            <td><span class="ams-filename_exterior18"></span></td>
+                            <td><span class="ams-filename_exterior19"></span></td>
+                            <td><span class="ams-filename_exterior20"></span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -264,7 +350,7 @@
             <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
             <script src="./js/plugins/jquery.jsonp-2.4.0.min.js"></script>
-            <script src="./js/main.js"></script>
+            <script src="./js/main.js?_=0.0.2"></script>
         </article>
     </div>
 </body>
