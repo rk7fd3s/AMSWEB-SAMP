@@ -23,13 +23,14 @@ $(function(){
       "page": '1'                 // ページNo
     };
 
-    const model = $.extend({}, defaultModel);
+    var model = $.extend({}, defaultModel);
 
     return {
       getModel: function() {
         return model;
       },
       setModel: function(_model) {
+        model = $.extend({}, defaultModel);
         $.each($.extend(model, _model), function(key, val) {
           if (val === null || val === '') {
             if (key in defaultModel) {
@@ -104,7 +105,6 @@ $(function(){
    */
   const search = function(searchCondition) {
     var deferred = new $.Deferred;
-    console.log('search process start');
 
     /**
      * 引数のjsonデータを画面にはめ込む
@@ -173,10 +173,6 @@ $(function(){
       console.log(textStatus);
       deferred.reject();
     });
-
-    return deferred.promise().always(function() {
-      console.log('search process fin');
-    });
   };
 
   // オブジェクト設定
@@ -199,7 +195,15 @@ $(function(){
     const formData = new FormData($eles.searchArea.find('form').get(0));
     const searchCondition = {};
     for (var entry of formData.entries()) {
-      searchCondition[entry[0]] = entry[1];
+      if (searchCondition[entry[0]]) {
+        if ($.isArray(searchCondition[entry[0]])) {
+          searchCondition[entry[0]].push(entry[1]);
+        } else {
+          searchCondition[entry[0]] = [searchCondition[entry[0]], entry[1]];
+        }
+      } else {
+        searchCondition[entry[0]] = entry[1];
+      }
     }
 
     // リクエストモデルにセット
